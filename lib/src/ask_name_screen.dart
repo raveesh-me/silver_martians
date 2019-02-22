@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:silver_martians/src/story_route_generator.dart';
 import 'package:silver_martians/src/story_screen.dart';
 
 class AskNameScreen extends StatefulWidget {
@@ -9,16 +10,13 @@ class AskNameScreen extends StatefulWidget {
 }
 
 class AskNameScreenState extends State<AskNameScreen> {
-
   TextEditingController nameController;
-
 
   @override
   void initState() {
     super.initState();
     nameController = TextEditingController();
   }
-
 
   @override
   void dispose() {
@@ -28,8 +26,17 @@ class AskNameScreenState extends State<AskNameScreen> {
 
   onStartAdventurePressed() {
     print(nameController.text);
-    Navigator.push(context, dummyStoryScreenRoute());
+    Navigator.push(
+        context,
+        getRouteByStoryStage(
+          StoryStage.page0,
+          nameController.text,
+        ));
   }
+
+//  https://goo.gl/kZHzWn
+
+  //https://goo.gl/9bRWfx
 
 
   @override

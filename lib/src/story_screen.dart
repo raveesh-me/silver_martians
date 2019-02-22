@@ -55,9 +55,12 @@ class StoryScreen extends StatelessWidget {
               child: Text(storyText),
             ),
             Spacer(),
-            StoryPageButton(
-              buttonText: button1Text,
-              buttonFunction: button1Function,
+            Visibility(
+              visible: button1Text != null,
+              child: StoryPageButton(
+                buttonText: button1Text,
+                buttonFunction: button1Function,
+              ),
             ),
             StoryPageButton(
               buttonText: button2Text,

@@ -8,9 +8,9 @@ enum StoryStage {
   page2,
   page3,
   page4,
+  page5,
+  page6,
 }
-
-enum EndingType { endWithoutAndroid, endWithAndroid }
 
 MaterialPageRoute getRouteByStoryStage(
   StoryStage stage,
@@ -51,9 +51,7 @@ MaterialPageRoute getRouteByStoryStage(
             button1Text: page2_choice1,
             button2Text: page2_choice2,
             button1Function: buttonFunction(stage: StoryStage.page1),
-            button2Function: () {
-              /*TODO Go to page 6*/
-            },
+            button2Function: buttonFunction(stage: StoryStage.page6),
             storyText: page2(name),
             assetImagePath: "assets/images/page2.png");
         break;
@@ -62,9 +60,7 @@ MaterialPageRoute getRouteByStoryStage(
             button1Text: page3_choice1,
             button2Text: page3_choice2,
             button1Function: buttonFunction(stage: StoryStage.page4),
-            button2Function: () {
-              /*TODO GotoPage 5*/
-            },
+            button2Function: buttonFunction(stage: StoryStage.page5),
             storyText: page3(name),
             assetImagePath: 'assets/images/page3.png');
         break;
@@ -73,14 +69,31 @@ MaterialPageRoute getRouteByStoryStage(
           assetImagePath: "assets/images/page4.png",
           button1Text: page4_choice1,
           button2Text: page4_choice2,
-          button1Function: () {
-            /*5*/
-          },
-          button2Function: () {
-            /*6*/
-          },
+          button1Function: buttonFunction(stage: StoryStage.page5),
+          button2Function: buttonFunction(stage: StoryStage.page6),
           storyText: page4(name),
         );
+        break;
+      case StoryStage.page5:
+        return StoryScreen(
+          storyText: page5(name),
+          button1Text: null,
+          button1Function: null,
+          button2Text: "PLAY AGAIN",
+          button2Function: buttonFunction(stage: StoryStage.page0),
+          assetImagePath: 'assets/images/page5.png',
+        );
+        break;
+      case StoryStage.page6:
+        return StoryScreen(
+          storyText: page6(name),
+          button1Text: null,
+          button1Function: null,
+          button2Text: "PLAY AGAIN",
+          button2Function: buttonFunction(stage: StoryStage.page0),
+          assetImagePath: 'assets/images/page6.png',
+        );
+        break;
     }
   });
 }
