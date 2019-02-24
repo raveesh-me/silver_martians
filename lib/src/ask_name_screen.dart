@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:silver_martians/src/story_route_generator.dart';
-import 'package:silver_martians/src/story_screen.dart';
+
+Route askNameScreenRoute = MaterialPageRoute(builder: (_) => AskNameScreen());
 
 class AskNameScreen extends StatefulWidget {
   @override
@@ -38,32 +39,37 @@ class AskNameScreenState extends State<AskNameScreen> {
 
   //https://goo.gl/9bRWfx
 
-
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage("assets/images/main_title.png"),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Silver Martian"),
+        backgroundColor: Colors.black,
       ),
-      child: Column(
-        children: <Widget>[
-          Spacer(),
-          TextField(
-            controller: nameController,
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: Colors.white,
-              hintText: "ENTER YOUR NAME",
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage("assets/images/main_title.png"),
+          ),
+        ),
+        child: Column(
+          children: <Widget>[
+            Spacer(),
+            TextField(
+              controller: nameController,
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Colors.white,
+                hintText: "ENTER YOUR NAME",
+              ),
             ),
-          ),
-          RaisedButton(
-            onPressed: onStartAdventurePressed,
-            child: Text("START YOUR ADVENTURE"),
-          ),
-        ],
+            RaisedButton(
+              onPressed: onStartAdventurePressed,
+              child: Text("START YOUR ADVENTURE"),
+            ),
+          ],
+        ),
       ),
     );
   }

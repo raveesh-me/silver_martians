@@ -37,6 +37,9 @@ class StoryScreen extends StatelessWidget {
     @required this.assetImagePath,
   }) : super(key: key);
 
+
+  bool get shouldButton1BeVisible => button1Text != null;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +59,7 @@ class StoryScreen extends StatelessWidget {
             ),
             Spacer(),
             Visibility(
-              visible: button1Text != null,
+              visible: shouldButton1BeVisible,
               child: StoryPageButton(
                 buttonText: button1Text,
                 buttonFunction: button1Function,

@@ -16,9 +16,12 @@ class StoryPageButton extends StatelessWidget {
       onPressed: buttonFunction,
       child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 18.0),
-            child: Text(buttonText, style: TextStyle(color: Colors.white),),
-          )),
+        padding: const EdgeInsets.symmetric(vertical: 18.0),
+        child: Text(
+          buttonText,
+          style: TextStyle(color: Colors.white),
+        ),
+      )),
       color: Colors.blueGrey,
       padding: EdgeInsets.all(0),
     );
