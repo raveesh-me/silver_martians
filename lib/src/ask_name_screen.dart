@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:silver_martians/src/story_route_generator.dart';
 
-Route askNameScreenRoute = MaterialPageRoute(builder: (_) => AskNameScreen());
+//This is the first screen of the application and contains the layout and logic for
+//implementing
 
 class AskNameScreen extends StatefulWidget {
   @override
@@ -21,6 +22,7 @@ class AskNameScreenState extends State<AskNameScreen> {
 
   @override
   void dispose() {
+    //always dispose your controllers to avoid issues
     nameController.dispose();
     super.dispose();
   }
@@ -34,10 +36,13 @@ class AskNameScreenState extends State<AskNameScreen> {
           nameController.text,
         ));
   }
-
+//attendance form:
 //  https://goo.gl/kZHzWn
 
+
+  //feedback form:
   //https://goo.gl/9bRWfx
+
 
   @override
   Widget build(BuildContext context) {
